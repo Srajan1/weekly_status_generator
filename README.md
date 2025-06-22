@@ -16,4 +16,4 @@ docker compose up --build
 docker compose exec django-web python manage.py makemigrations
 docker compose exec django-web python manage.py migrate 
 ```
-
+Run after changes in db schema
