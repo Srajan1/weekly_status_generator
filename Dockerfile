@@ -47,5 +47,6 @@ USER appuser
 # Expose the application port
 EXPOSE 8000 
  
-# Start the application using Gunicorn
-CMD ["gunicorn", "--bind", "0.0.0.0:8000", "--workers", "3", "weekly_status_generator.wsgi:application"]
+# Start the application using Gunicorn in prod, use manage.py runserver to make sure auto reload works
+# CMD ["gunicorn", "--bind", "0.0.0.0:8000", "--workers", "3", "weekly_status_generator.wsgi:application"]
+CMD ["python", "manage.py", "runserver", "0.0.0.0:8000"]
