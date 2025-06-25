@@ -1,4 +1,5 @@
-from django.shortcuts import render
+from django.shortcuts import render, redirect
+from django.core import serializers
 from django.http import HttpResponse, JsonResponse
 from .models import Tasks
 from utils.standard_responses import error_response, success_response
@@ -28,9 +29,21 @@ def tasks(request):
                 next_steps=next_steps
             )
             task.save()
-            return success_response(status_code=201, message='Task created successfully')
+            return redirect('/tasks')
         except Exception as e:
             print(f'EXCEPTION: {e} occured while creating task')
             return error_response(error_code=500, message='Failed to create task')
+    if request.method == 'GET':
+        # try:
+        all_tasks = Tasks.objects.all().values()
+        result = {}
+        result['status_code'] = 201
+        result['message'] = 'Data retrieved'
+        result['data'] = all_tasks
+        return render(request, 'tasks.html', result)
+        # except Exception as e:
+        #     print(e)
+        #     return error_response(error_code=500, message='Failed to fetch tasks')
+        
     return HttpResponse('invalid request')
 

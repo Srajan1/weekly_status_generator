@@ -1,6 +1,7 @@
 from django.db import models
 from django.contrib.postgres.fields import ArrayField
 import uuid
+from datetime import datetime
 
 # Create your models here.
 class Tasks(models.Model):
@@ -12,6 +13,7 @@ class Tasks(models.Model):
     steps_taken = models.TextField('Steps Taken')
     relevant_links = ArrayField(models.URLField(), blank=True, default=list)
     next_steps = models.TextField('Next steps')
+    date = models.DateTimeField(default=datetime.now, blank=True)
     def __str__(self):
         return f"{self.title} ({self.jira_id})"
     class Meta:

@@ -1,0 +1,19 @@
+{% load static %}
+<div class="all-task-cards">
+    {% for task in data %}
+    <div class="card">
+        <div class="card-head">
+            <p><strong>{{task.title}}</strong></p>
+            <span>{{task.date}}</span>
+        </div>
+        <p>{{task.objective}}</p>
+        {% if task.current_status == 'done' %}
+            <span class="status-badge completed-badge">Completed</span>
+        {% elif task.current_status == 'in_progress' %}
+            <span disabled class="status-badge in-progress-badge">in progress</span>
+        {% elif task.current_status == 'blocked' %}
+            <span disabled class="status-badge blocked-badge">blocked</span>
+        {% endif %}
+    </div>
+    {% endfor %}
+</div>

@@ -1,13 +1,9 @@
+{% extends "base.html" %}
 {% load static %}
-<!DOCTYPE html>
-<html lang="en">
-<head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Document</title>
+{% block style %}
     <link rel="stylesheet" href="{% static 'index.css' %}">
-</head>
-<body>
+{% endblock %}
+{% block content %}
   <main>
     <h1>Add Today's Work Log</h1>
     <form id="work-log-form" method="POST" action="{% url 'views.tasks' %}">
@@ -29,7 +25,11 @@
 
       <label>
         Current Status
-        <input type="text" name="status" placeholder="Current status">
+        <select id="cars" name="status">
+            <option value="done">Done</option>
+            <option value="in_progress">In Progress</option>
+            <option value="blocked">Blocked</option>
+        </select>
       </label>
 
       <label>
@@ -53,7 +53,6 @@
       <button type="submit">Submit</button>
     </form>
   </main>
-</body>
   <script>
     const addLinkBtn = document.getElementById('add-link');
     const linksContainer = document.getElementById('links-container');
@@ -84,4 +83,4 @@
         })
     }
   </script>
-</html>
+{% endblock %}
