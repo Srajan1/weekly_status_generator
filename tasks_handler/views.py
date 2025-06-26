@@ -1,4 +1,4 @@
-from django.shortcuts import render, redirect
+from django.shortcuts import render, redirect, get_object_or_404
 from django.core import serializers
 from django.http import HttpResponse, JsonResponse
 from .models import Tasks
@@ -41,9 +41,9 @@ def tasks(request):
         result['message'] = 'Data retrieved'
         result['data'] = all_tasks
         return render(request, 'tasks.html', result)
-        # except Exception as e:
-        #     print(e)
-        #     return error_response(error_code=500, message='Failed to fetch tasks')
         
     return HttpResponse('invalid request')
 
+def task(request, task_id):
+    task = get_object_or_404(Tasks, id=task_id)
+    return render(request, 'task_detail.html', {'task': task})

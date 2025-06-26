@@ -1,7 +1,8 @@
 {% load static %}
 <div class="all-task-cards">
     {% for task in data %}
-    <div class="card">
+    <a href="{{ request.path }}{{task.id}}" class="card-link">
+        <div class="card">
         <div class="card-head">
             <p><strong>{{task.title}}</strong></p>
             <span>{{task.date}}</span>
@@ -14,6 +15,7 @@
         {% elif task.current_status == 'blocked' %}
             <span disabled class="status-badge blocked-badge">blocked</span>
         {% endif %}
-    </div>
+        </div>
+    </a>
     {% endfor %}
 </div>

@@ -1,3 +1,9 @@
+.card-link{
+    text-decoration: none;
+    color: inherit;
+    display: block;
+}
+
 .card {
   border: 1px solid #ccc;
   border-radius: 8px;
@@ -5,8 +11,10 @@
   background: white;
   box-shadow: 0 2px 6px rgba(0,0,0,0.05);
   margin-bottom: 1.5rem;
+  cursor: pointer;
   transition: transform 0.2s ease;
 }
+
 .card:hover {
   transform: translateY(-3px);
 }
