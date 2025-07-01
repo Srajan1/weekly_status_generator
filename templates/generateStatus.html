@@ -1,0 +1,22 @@
+{% extends "base.html" %}
+{% load static %}
+{% block style %}
+    <link rel="stylesheet" href="{% static 'generateStatus.css' %}">
+{% endblock %}
+{% block content %}
+    <main>
+        <h1>Enter initial and final date whose status you want to summarize</h1>
+        <form method="POST">
+            {% csrf_token %}
+            <label>
+                Enter initial date
+                <input type="date" name="start-date">
+            </label>
+            <label>
+                Enter final date
+                <input type="date" name="end-date">
+            </label>
+            <button type="submit">Generate Status</button>
+        </form>
+    </main>
+{% endblock %}
