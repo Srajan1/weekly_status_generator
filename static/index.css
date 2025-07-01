@@ -32,19 +32,6 @@
   color: #fff;
 }
 
-/* Submit button */
-button[type="submit"] {
-  padding: 14px;
-  font-size: 1rem;
-  background-color: #007aff;
-  color: #fff;
-  border: none;
-  border-radius: 6px;
-  cursor: pointer;
-  transition: background 0.3s ease;
-  width: 100%;
-}
-
 button[type="submit"]:hover {
   background-color: #005bb5;
 }

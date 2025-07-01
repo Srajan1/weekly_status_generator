@@ -22,5 +22,17 @@ services:
         - db
     volumes:
      - .:/app
+
+ ollama:
+    image: ollama/ollama
+    container_name: weekly-status-llm
+    ports:
+        - "11434:11434"
+    volumes:
+        - ./entrypoint.sh:/entrypoint.sh:ro
+        - ollama:/root/.ollama
+    entrypoint: sh -c "sh /entrypoint.sh"
+
 volumes:
     postgres_data:
+    ollama:

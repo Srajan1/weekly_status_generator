@@ -4,6 +4,9 @@ Writing weekly status mails isn't a task which most people look forward too. It'
 
 ## Note: For now it's a tool which developers can run locally on their system, hence there is not authentication/authorization done. Anyone using this tool will have access to all the tasks 🫶
 
+## LLM info
+This tool uses phi3:3.8b LLM https://ollama.com/library/phi3 the model runs locally on the server and hence is completely free. The performance of the LLM will depend on the machine running it. The model was chosen because it was lightweight and has been found good for the tasks of summarization. Reddit post which helped coming to conclusion: https://www.reddit.com/r/LocalLLaMA/comments/1dnavrt/update_model_review_for_summarizationinstruct_1gb/
+
 ## Setup:
 Populate the .env file using the template provided in .env-template
 
